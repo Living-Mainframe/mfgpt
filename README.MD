@@ -1,48 +1,83 @@
-# MFGPT: Shell GPT Tech Demo for Mainframe Developers and Administrators
+# MFGPT (Mainframe GPT) Wrapper Script
 
-This is a tech demo wrapper script for [shell_gpt](https://github.com/TheR1D/shell_gpt), specifically designed to suit the needs of mainframe developers and administrators. The wrapper allows users to run the sgpt script with options that provide context specific to mainframe development and administration tasks.
-
-## Features
-
-- Automatically checks for and installs the `shell-gpt` package if not already installed
-- Provides two main options to run the sgpt script:
-  - `--task <text>`: Run the sgpt script with a text input for mainframe tasks
-  - `--explain <filepath>`: Run the sgpt script with the content of a file for mainframe explanations
-- Error handling and proper usage guidance
+This script provides a wrapper around the `sgpt` command-line tool for generating text based on prompts. It offers additional functionality specifically tailored for IBM Mainframe (z/OS) administrators and programmers.
 
 ## Prerequisites
 
-- Python 3.x
-- pip (Python package installer)
-
-## Installation
-
-1. Install and configure [shell_gpt](https://github.com/TheR1D/shell_gpt)
-2. Clone this repository or download the `mfgpt.sh` file.
-3. Make the `mfgpt.sh` file executable by running `chmod +x mfgpt.sh`.
+- Python 3.x and pip installed
+- Shell-GPT (sgpt) Python package (will be installed automatically if not already installed)
 
 ## Usage
 
-Run the wrapper script with the desired parameters:
+The script `mfgpt.sh` can be used with the following options:
+
+1. **--c3270**
+
+   Displays the content of all c3270 screen sessions and generates a text based on the input.(*good results*)
 
 
 ```
 
-./mfgpt.sh --task "<text>"
+./mfgpt.sh --c3270
 
 ```
 
-or
+2. **--explain**
+
+Analyzes a given file and generates an explanation of the file content, including detailed explanation and external resources. The file should be a source code or script from an IBM Mainframe (z/OS).(*medium results*)
 
 
 ```
 
-./mfgpt.sh --explain "<filepath>"
+./mfgpt.sh --explain "<path-to-your-file>"
 
 ```
 
-Replace `<text>` with the text input specific to the mainframe task or `<filepath>` with the path to the file containing the mainframe explanation.
+Replace `<path-to-your-file>` with the path to the file you want to analyze.
 
-Please note that this is a tech demo and may not cover all possible use cases for mainframe developers and administrators. Contributions and suggestions are welcome to improve and expand the functionality.
+3. **--task**
 
+Provides step-by-step instructions based on the given task prompt.(*bad results - let's wait for the next interation of LLMs or gpt4 api access*)
+
+
+```
+
+./mfgpt.sh --task "<your-task-prompt>"
+
+```
+
+Replace `<your-task-prompt>` with your desired task description.
+
+## Examples
+
+1. Get the content of all c3270 screen sessions and generate text based on the input:
+
+
+```
+
+./mfgpt.sh --c3270
+
+```
+
+2. Analyze a file and generate an explanation of the file content:
+
+
+```
+
+./mfgpt.sh --explain "myjcl"
+
+```
+3. Generate step-by-step instructions for a given task:
+
+
+```
+
+./mfgpt.sh --task "Create a new dataset in z/OS"
+
+```
+
+
+## License
+
+This script is released under the [MIT License](https://opensource.org/licenses/MIT).
 
