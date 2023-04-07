@@ -47,7 +47,11 @@ sgpt_c3270() {
         content=$(get_screen_sessions "$sessions")
 read -r -d '' c3270Text <<EOF
 ###
-Tell me in one sentence what the input is. After that write me some bullet points what I can do here. After that, write me 2 short examples of what I can do next. If you use abbreviations, explain them in parentheses.
+The input is a 3270 terminal emulator screen session. Help me understand the screen.
+Ignore the Function Key Lables at the bottom of the screen for your answer.
+- Explain to me in one sentence the contents of the screen.
+- After that, write me some bullet points of what I can do here.
+- After that, write me 2 short examples of what I can do next. If you use abbreviations, explain them in parentheses.
 Input:
 $content
 EOF
